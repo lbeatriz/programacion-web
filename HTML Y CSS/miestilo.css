@@ -1,0 +1,16 @@
+#titulo{
+    color: blue;
+    width: 400px;
+    margin: 0 auto;
+}
+
+.subtitulo{
+    color:red;
+    border: solid 2px green;
+   
+}
+
+h1{
+    color: green;
+}
+
