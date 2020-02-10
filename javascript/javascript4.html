@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="micss.css">
+</head>
+<body>
+   <label for="h"> <input type="checkbox" id="h" value="30"> Hamburguesa sencilla</label>
+   <label for="p"> <input type="checkbox" id="p" value="20"> Papas a la francesa</label>
+   <label for="r"> <input type="checkbox" id="r" value="15"> Refresco embotellado</label>
+    <button id="pagar">Total de la cuenta</button>
+
+
+
+
+
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+    <script>
+       $('#pagar').click(function(){
+           var total=0;
+           if($('#h').is(':checked')){
+               total=total+parseInt($('#h').val());
+           }
+
+           if($('#p').is(':checked')){
+                total+=parseInt($('#p').val());
+           }
+
+           if($('#r').is(':checked')){
+                total+=parseInt($('#r').val());
+           }
+
+           alert('El total de tu cuenta es: '+total);
+       });
+    </script>
+</body>
+</html>
