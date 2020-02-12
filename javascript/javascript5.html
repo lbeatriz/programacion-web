@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ocultar y Mostrar elementos</title>
+    <link rel="stylesheet" href="micss.css">
+</head>
+<body>
+   <label for="aceptar"> <input type="checkbox" id="aceptar" value=""/>Acepto la descarga </label>
+  <div id="aceptado" >
+      <a href="#">Descargar</a>
+  </div>
+
+
+
+
+
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+    <script>
+        $('#aceptado').hide(); //ocultamos el div de inicio
+       $('#aceptar').click(function(){ //checamos si se da clic en el checkbox
+          
+           if($('#aceptar').is(':checked')){ //preguntamos si esta check
+               $('#aceptado').show(); //mostramos el div
+           }
+           else{ //si no está check
+            $('#aceptado').hide(); //ocultamos el div
+           }
+
+        }); 
+    </script>
+</body>
+</html>
