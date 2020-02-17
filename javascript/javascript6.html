@@ -1,0 +1,83 @@
+<!-- En este documento veremos como con JQuery tambien podemos controlar eventos del teclado
+y no solo de clic en botones -->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ocultar y Mostrar elementos</title>
+
+    <!-- un poco de CSS para animar el ejemplo, recuerde que a pesar de que esta forma
+    de incluir CSS en el sitio es válida, lo ideal es tenermo en un archivo aparte -->
+    <style>
+        #escenario {
+width: 100%;
+min-width: 500px;
+height: 200px;
+background: #6FD9FF;
+background-repeat: repeat-x;
+/* para que funcione en mozilla, el explorer y en chrome son las tres siguientes líneas */
+background-image: -moz-linear-gradient(top, #6FD9FF, #289FCB);
+background-image: -ms-linear-gradient(top, #6FD9FF, #289FCB);
+background-image: -webkit-gradient(linear, left top, left bottom, from(#6FD9FF),
+to(#289FCB));
+background-image: -webkit-linear-gradient(top, #6FD9FF, #289FCB);
+background-image: -o-linear-gradient(top, #6FD9FF, #289FCB);
+background-image: linear-gradient(top, #6FD9FF, #289FCB);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6FD9FF',
+endColorstr='#289FCB',GradientType=0 );
+border-bottom: 25px solid #208A00;
+}
+#pollito {
+position: absolute;
+margin-left: 400px;
+margin-top: 0px;
+background: URL('img/pollito.png') no-repeat;
+width: 220px;
+height: 220px;
+}
+    </style>
+   
+</head>
+<body>
+    <div id="escenario"><div id="pollito"></div></div>
+
+
+
+
+
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+    <script>
+      $pollito = $("#pollito");
+$escenario = $("#escenario"); //se declara una variable
+pos_x = 400;
+$('body').keydown(function(event) { //si se presionó una tecla
+switch(event.which) {
+case 39: //39 es la flecha derecha
+$pollito.css("transform", "scaleX(1)"); //voltea la imagen en espejo el valor de 1 o -1 determina hacia donde el giro
+if(pos_x < ($escenario.width() - $pollito.width()) ) { //Si tiene espacio para avanzar
+pos_x += 10; //se mueve 10 pixeles la imagen
+$pollito.css("margin-left", pos_x + "px"); //permite añadir css a un objeto solo ponemos primero que elemento de css una coma y el valor que la vamos a mandar
+}
+break;
+case 37: //37 es la flecha izquierda en ASCII
+$pollito.css("transform", "scaleX(-1)");
+if(pos_x>0) {
+pos_x -= 10;
+$pollito.css("margin-left", pos_x + "px");
+}
+break;
+default:
+console.log('Tecla: '+ event.which); //muestra en consola la tecla presionada si quieres ver la consola
+//Clic derecho en la página web -> inspeccionar y en el menú que aparece 
+// seleccionar la pestaña console
+}
+});
+
+    </script>
+</body>
+</html>
