@@ -1,0 +1,36 @@
+<!--En este documento veremos como funciona la responsividad en Bootstrap
+    trabajaremos con la Grilla de 12 columnas que maneja Bootstrap
+    y los 5 tamaños de pantalla (xs,sm,md,lg,xl)
+-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Implementando Bootstrap</title>
+    <!--Este es el css de Bootstrap-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container"> <!--Siempre debe existir un contenedor principal que se determina con la clase container -->
+        <div class="row"> <!--Iniciamos una fila en bootstrap con la clase row-->
+            <!-- Aquí le estamos diciendo con la clase col-12 que en pantallas extra pequeñas
+            ocupe los doce espacios pero en pantallas medianas en adelante ocupe solamente 
+            6 espacios la otra clase que tiene cada div le da color de fondo para que se vea la diferencia -->
+            <div class="col-12 col-md-6 bg-primary" style="height: 200px;"></div> 
+            <div class="col-12 col-md-6 bg-danger" style="height: 200px;"></div>
+
+            <!-- Con esto logramos que en dispositivos pequeños un bloque esté abajo del otro 
+            pero en dispositivos medianos, grandes, o extra grandes estén uno junto al otro
+            el color primary es el azul y el danger es el rojo pueden probar con otros colores
+            como success, secondary, warning, info, ligth y dark -->
+        </div>
+
+    </div>
+ 
+    <!--Estos son los JS de Bootstrap notese que el orden es importante, el primero es JQUERY-->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>   
