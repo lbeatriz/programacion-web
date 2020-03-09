@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<!-- En este documento veremos como podemos hace runa barra lateral colapsable que podemos
+utilizar en plantillas tipo dahsboard de administrador, utilizaremos únicamente Bootstrap 4
+ y CSS propio esta puede ser la plantilla inicial de nuestro CRM y sobre esta podemos
+  agregarle poco apoco nuevas áreas  -->
+<head>
+    <!-- Esto hace que podemos escribir acentos y la letra ñ -->
+    <meta charset="utf-8">
+    <!-- Este meta inicializa nuestro sitio web de acuerdo al tamño del dispositivo en que se está
+    visualizando, es indispensable para haver diseños responsivos -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   
+
+    <title>Barra lateral colapsable utilizando Bootstrap 4</title>
+
+    <!-- CDN de Bootstrap -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <!-- Este sería en caso de necesitarlo nuestro css personal -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Estos son los CDN de Font awesome para que podamos agregar fácilmente íconos en
+    nuestros sitios web, Font awesome utiliza font icons que son más fáciles de cargar para
+el sitio que archivos de imágenes normales -->
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js" integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ" crossorigin="anonymous"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js" integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!-- Esta es nuesta barra superior de navegación que ocupe toda la pantalla, las clases
+    navbar sonb de bootstrap para que tenga el comportamiento correcto y la clase bg-primary
+es la que hace que sea de color azul, pueden consultar más colores en la documentación oficial
+ de Bootrap en getbootstrap.com -->
+    <nav class="navbar navbar-expand navbar-dark bg-primary">
+        <!-- La clasee navbar brand se reserva para el logo del sitio es decir posiciona el contenido
+        en la esquina superior izquierda en caso la utilizaremos para poner el icono de hamburguesa
+    asi se llama a las tres rayas que indican que hay un menú -->
+         <a href="#menu-toggle" id="menu-toggle" class="navbar-brand">
+             <span class="navbar-toggler-icon"></span>
+            </a>
+             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample02" aria-controls="navbarsExample02" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+        <div class="collapse navbar-collapse" id="navbarsExample02">
+           
+        </div>
+    </nav>
+    <div id="wrapper" class="toggled">
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <!-- la etiqueta span es para generar un espacio y las clases que contien
+                son las que permiten que se pongan los iconos -->
+                <li class="sidebar-brand"> <a href="#"> Menú principal </a> </li>
+                <li> <a href="#"><span class="fas fa-home"></span> Inicio</a> </li>
+                <li> <a href="#"><span class="fas fa-user"></span> Clientes</a> </li>
+                <li> <a href="#"><span class="fas fa-book"></span> Reportes</a> </li>
+                <li> <a href="#"><span class="fas fa-percentage"></span> Promociones</a> </li>
+                <li> <a href="#"><span class="fas fa-boxes"></span> Campañas</a> </li>
+                
+            </ul>
+        </div> <!-- /#sidebar-wrapper -->
+        <!-- Contenido del sitio -->
+        <div id="page-content-wrapper">
+            <!-- La clase contanier fluid hace que nuestro sitio ocupe todo el ancho de la página -->
+            <div class="container-fluid">
+                <h1>Contenido Principal del Sitio</h1>
+                <p>Noten que este contenido es responsivo, es decir que se adapta cuando se abre y se cierra la barra lateral</p>
+                <p>Esta sección la podemos dividir en filas y columnas para poder acomodar nuestra información</p>
+            </div>
+        </div> <!-- /#page-content-wrapper -->
+    </div> <!-- /#wrapper -->
+
+
+    <!-- CDN de jquery en este caso el minificado porque no necesitamos AJAX (por ahora) -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <!-- Popper.JS Necesario para Bootstrap 4--->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <!-- El JQuery de Bootstrap 4 -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <!-- Nuestro Script propio -->
+    <script>
+         
+        //  Al hacer clic en el botón de hamburguesa lo que hacemos es agregar o quitar
+        // la clase toggled que es la que aplica los estilos para que aparezca o desaparezca
+        // nuestra barra lateral, esto lo pudimos hacer tambien con hide y show
+         $(function(){
+            $("#menu-toggle").click(function(e) {
+                e.preventDefault();
+                $("#wrapper").toggleClass("toggled");
+            });
+
+            $(window).resize(function(e) {
+              if($(window).width()<=768){
+                $("#wrapper").removeClass("toggled");
+              }else{
+                $("#wrapper").addClass("toggled");
+              }
+            });
+          });
+    </script>
+</body>
+
+</html>
