@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="S" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tercera sesión con Vue.js</title>
+</head>
+<body>
+<div id="app">
+    <p> {{texto}} </p>
+    <!-- Aquí una directiva, la directiva v-model, con esta directiva enlazamos en "tiempo real" el valor de una variable, en este caso texto,
+    y cuando cambiemos lo escrito en el input automáticamente cambia el valor de texto y por lo tanto se actualiza el párrafo, ¿genial no? -->
+<input v-model="texto" placeholder="teclea lo que gustes"/>
+
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+
+<script>
+
+    var app = new Vue({
+        el: '#app',
+        data: {
+            texto: '' //Lo iniciamos vacio para que no tenga nada escrito, noten que con v-model ni necesitamos una función para cambiar el frontend
+        },
+    })
+
+    //En esta lección aprendimos como podemos enlazar un input de un formulario con el modelo de nuestra app Vue y de esa manera actualizar dinámicamente nuestro frontend
+
+</script>
+</body>
+</html>
