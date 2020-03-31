@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="S">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Primera sesión con Vue.js</title>
+</head>
+<body>
+<div id="app"> <!-- Todo lo que queramos que esté dentro de nuestra aplicación Vue debe estar dentro del div con la id app -->
+{{saludo}} <!-- conb las dobles llaves podemos imprimir "variables" en nuestro html -->
+</div>
+<!-- versión de desarrollo, incluye advertencias de ayuda en la consola -->
+<!-- También hay la versión de producción, minimizada y sin mensajes de error por consola -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script> <!-- este es nuestro código de Vue.js aunque lo más recomendable es tenerli en un archivo aparte -->
+//Con esta linea iniciamos una aplicación o función de vue
+//Pueden ver que recibe un arreglo o mas bien un objeto de elementos
+var app = new Vue({
+    el: '#app', //en esta indicamos el id del elemento en donde Vue tiene dominio nosotros le llamamos app a nuestro div
+    data: { //En el elemento data van todas las variables de nuestra aplicación
+        saludo: 'Hola desde Vue!' //recuerden que asi le llamamos a nuestro data cuando la mandamos a imprimir en el html
+    }
+})
+    //felicidades!!! acabas de tener tu hola mundo en Vue, bastante sencillo
+    //Aquí aprendimos como incorporar vue a nuestro proyecto y como crear una instancia del mismo
+    //También aprendimos como vincular el data binding (nuestro centro de datos o variables) con nuestro frontv (html)
+</script>
+</body>
+</html>
